@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanyu Cheng | Academic Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --text: #1a1814;
+    --muted: #6b6760;
+    --accent: #2d5a8e;
+    --accent-light: #e8f0f9;
+    --border: rgba(0,0,0,0.09);
+    --border-mid: rgba(0,0,0,0.15);
+    --teal: #0f6e56;
+    --teal-light: #e1f5ee;
+    --coral: #993c1d;
+    --coral-light: #faece7;
+    --amber: #854f0b;
+    --amber-light: #faeeda;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111210;
+      --surface: #1c1c1a;
+      --text: #e8e5de;
+      --muted: #9a9690;
+      --accent: #7ab3e0;
+      --accent-light: #0c2a42;
+      --border: rgba(255,255,255,0.08);
+      --border-mid: rgba(255,255,255,0.15);
+      --teal: #5dcaa5;
+      --teal-light: #04342c;
+      --coral: #f0997b;
+      --coral-light: #4a1b0c;
+      --amber: #ef9f27;
+      --amber-light: #412402;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .hero-text h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.2rem;
+  }
+
+  .hero-chinese-name {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .hero-text .subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 300;
+    padding: 5px 12px;
+    border: 0.5px solid var(--border-mid);
+    border-radius: 100px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    background: var(--surface);
+  }
+
+  .contact-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--teal-light) 100%);
+    border: 0.5px solid var(--border-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 2.8rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .label-large {
+    font-size: 40px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .edu-courses strong {
+    color: var(--text);
+    font-weight: 500;
+    font-family: 'Instrument Sans', sans-serif;
+    letter-spacing: 0.02em;
+    }
+
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  section {
+    margin-bottom: 3.5rem;
+    padding-top: 1rem;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border);
+  }
+
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 13px;
+    padding: 4px 14px;
+    border-radius: 4px;
+    border: 0.5px solid var(--border-mid);
+    color: var(--muted);
+    background: var(--surface);
+  }
+
+  .tag.accent {
+    background: var(--accent-light);
+    border-color: transparent;
+    color: var(--accent);
+  }
+
+  .paper-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .paper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1.2rem;
+    padding: 1.2rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .paper:first-child { border-top: 0.5px solid var(--border); }
+
+  .paper-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 3px;
+    min-width: 20px;
+  }
+
+  .paper-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+    color: var(--text);
+  }
+
+  .paper-authors {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .paper-authors strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .paper-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 10.5px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+  }
+
+  .badge-revision {
+    background: var(--teal-light);
+    color: var(--teal);
+  }
+
+  .badge-working {
+    background: var(--amber-light);
+    color: var(--amber);
+  }
+
+  .badge-inprep {
+    background: var(--coral-light);
+    color: var(--coral);
+  }
+
+  .badge-conference {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  .paper-venue {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .paper-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 2px 6px;
+    border: 0.5px solid currentColor;
+    border-radius: 3px;
+    opacity: 0.75;
+    transition: opacity 0.15s;
+  }
+
+  .paper-link:hover { opacity: 1; }
+
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1.2rem;
+    padding: 1.2rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .exp-item:first-child { border-top: 0.5px solid var(--border); }
+
+  .exp-dot {
+    margin-top: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--border-mid);
+    flex-shrink: 0;
+  }
+
+  .exp-dot.highlight { background: var(--accent); }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .exp-title {
+    font-weight: 500;
+    font-size: 14.5px;
+  }
+
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .exp-org {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exp-bullets li {
+    font-size: 13.5px;
+    color: var(--muted);
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.2rem;
+    line-height: 1.6;
+  }
+
+  .exp-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--border-mid);
+  }
+
+  .edu-card {
+  border: 0.5px solid var(--border-mid);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+  }
+  .edu-top {
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .edu-degree {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  .edu-meta {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .edu-gpa-block {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+  .gpa-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .gpa-denom {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--muted);
+    line-height: 1;
+  }
+  .gpa-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    text-align: right;
+  }
+  .edu-courses {
+    padding: 1rem 1.6rem;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    line-height: 1.9;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .skill-group {
+    padding: 0.9rem 1rem;
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+
+  .skill-group-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-items {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 3rem 1.5rem 2rem;
+    }
+    .hero-text h1 { font-size: 2.2rem; }
+    .avatar { display: none; }
+    main { padding: 0 1.5rem 4rem; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .edu-card { flex-direction: column; }
+    .edu-gpa { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Hanyu Cheng</span>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-text">
+    <h1>Hanyu Cheng</h1>
+    <p class="hero-chinese-name">程瀚语</p>
+    <p class="subtitle">Industrial Engineering · Tsinghua University</p>
+    <p>
+      I am currently an undergraduate student at Tsinghua University, studying transportation and logistics systems. My work spans traffic equilibrium modeling for ride-hailing, autonomous transit, maritime logistics, and infrastructure planning.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:hanyucheng2026@gmail.com" class="contact-pill">✉ hanyucheng2026@gmail.com</a>
+      <a href="tel:+8613856231790" class="contact-pill">✆ +86 138 5623 1790</a>
+      <a href="https://scholar.google.com/citations?user=uGolTowAAAAJ&hl=en" target="_blank" class="contact-pill">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/hanyu-cheng-a094b430a/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_people%3BRuFS1QRgQbqhOnov%2FPy7YQ%3D%3D" target="_blank" class="contact-pill">LinkedIn</a>
+    </div>
+  </div>
+  <div class="avatar">HY</div>
+</div>
+
+<main>
+
+  <section id="research">
+    <div class="section-label label-large">Publications &amp; Preprints</div>
+    <div class="paper-list">
+
+      <div class="paper">
+        <span class="paper-num">1</span>
+        <div>
+          <div class="paper-title">A Markovian Traffic Equilibrium Model for Ride-Hailing</div>
+          <div class="paper-authors">Song Gao, <strong>Hanyu Cheng</strong>, Chiwei Yan, Guocheng Jiang</div>
+          <div class="paper-meta">
+            <span class="badge badge-inprep">In Preparation</span>
+            <span class="paper-venue">Target: Transportation Science</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper">
+        <span class="paper-num">2</span>
+        <div>
+          <div class="paper-title">Optimizing Urban Electric Vehicle Charging and Battery Swapping Infrastructure: A Location-Inventory-Grid Model</div>
+          <div class="paper-authors">Wenqing Ai*, <strong>Hanyu Cheng*</strong>, Wei Qi &nbsp;<em style="font-size:12px;color:var(--muted)"></em></div>
+          <div class="paper-meta">
+            <span class="badge badge-revision">Minor Revision</span>
+            <span class="paper-venue">Transportation Research Part E</span>
+            <a href="https://arxiv.org/abs/2511.14308" target="_blank" class="paper-link">arXiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper">
+        <span class="paper-num">3</span>
+        <div>
+          <div class="paper-title">Dynamic Carbon Intensity Indicator (CII) Management in Stochastic Tramp Shipping Market</div>
+          <div class="paper-authors"><strong>Hanyu Cheng</strong>, Liangqi Cheng, Xiwen Bai</div>
+          <div class="paper-meta">
+            <span class="badge badge-revision">Minor Revision</span>
+            <span class="paper-venue">Transportation Research Part A</span>
+            <a href="https://arxiv.org/abs/2511.14471" target="_blank" class="paper-link">arXiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper">
+        <span class="paper-num">4</span>
+        <div>
+          <div class="paper-title">Adding Runs of Modular Autonomous Vehicles with Skip-Stop Strategy Using Deep Reinforcement Learning</div>
+          <div class="paper-authors"><strong>Hanyu Cheng</strong>, Qingyun Tian, Zhiwei Wang</div>
+          <div class="paper-meta">
+            <span class="badge badge-conference">Conference</span>
+            <span class="paper-venue">ITSC 2025</span>
+            <a href="https://ieeexplore.ieee.org/document/11423421" target="_blank" class="paper-link">IEEE Xplore</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper">
+        <span class="paper-num">5</span>
+        <div>
+          <div class="paper-title">Charting the Uncharted: A Multi-Attribute Ship Clustering Model for Identifying Dark Shipping of Sanctioned Oil Using AIS Data</div>
+          <div class="paper-authors">Yiliang Li, <strong>Hanyu Cheng</strong>, Shengyao Xu, Xiwen Bai</div>
+          <div class="paper-meta">
+            <span class="badge badge-working">Working Paper</span>
+            <span class="paper-venue">SSRN Working Paper No. 4998119</span>
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4998119" target="_blank" class="paper-link">SSRN</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-label label-large">Research Experience</div>
+    <div class="exp-list">
+
+        <div class="exp-item">
+        <div class="exp-dot highlight"></div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">Optimal Control in Battery Swapping Stations</span>
+            <span class="exp-date">March 2026 – Present</span>
+          </div>
+          <div class="exp-org">Prof. David Yao · Columbia University</div>
+          <ul class="exp-bullets">
+            <li>Constructed a continuous-time MDP model for optimal control in battery swapping stations</li>
+            <li>Proved the optimality of the threshold-based policy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot highlight"></div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">Markovian Traffic Equilibrium for Ride-Hailing</span>
+            <span class="exp-date">Jun 2025 – Present</span>
+          </div>
+          <div class="exp-org">Prof. Chiwei Yan · University of California, Berkeley</div>
+          <ul class="exp-bullets">
+            <li>Proved equilibrium existence via fixed-point theory; established uniqueness and MSA convergence for directed cycle networks</li>
+            <li>Conducted all numerical experiments on Sioux Falls and Chicago sketch networks (up to 933 nodes, 300K vehicles)</li>
+            <li>Designed ablation studies on myopic vs. forward-looking drivers and congestion-aware pricing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot highlight"></div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">Modular-Vehicle Transit with DRL</span>
+            <span class="exp-date">Jan 2025 – Jul 2025</span>
+          </div>
+          <div class="exp-org">Prof. David Z.W. Wang · Nanyang Technological University</div>
+          <ul class="exp-bullets">
+            <li>Designed an MDP-based optimization model integrating modular and regular transit</li>
+            <li>Developed a reinforcement learning framework reducing costs by 11.40% vs. rolling-horizon baseline</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">EV Charging Infrastructure</span>
+            <span class="exp-date">Oct 2024 – Present</span>
+          </div>
+          <div class="exp-org">Prof. Wei Qi · Tsinghua University</div>
+          <ul class="exp-bullets">
+            <li>Integrated grid regulation with location and inventory management of battery swap stations</li>
+            <li>Approximated the system via continuous models; under minor revision at TR Part E</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">Carbon Intensity Indicator (CII) Management</span>
+            <span class="exp-date">Apr 2024 – Present</span>
+          </div>
+          <div class="exp-org">Prof. Xiwen Bai · Tsinghua University</div>
+          <ul class="exp-bullets">
+            <li>Built stochastic optimization model for tramp fleet deployment under IMO CII constraints</li>
+            <li>Proved policy paradox; derived VSS and EVPI bounds; under minor revision at TR Part A</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">Dark Shipping Detection via AIS Data</span>
+            <span class="exp-date">May 2024 – Oct 2024</span>
+          </div>
+          <div class="exp-org">Prof. Xiwen Bai · Tsinghua University</div>
+          <ul class="exp-bullets">
+            <li>Developed multi-level K-means algorithm to detect illegal voyages, correctly classifying 80%+ dark ships</li>
+            <li>Improved classification accuracy by 28% over baseline using AIS trajectory features</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<section id="about">
+  <div class="section-label">Education</div>
+  <div class="edu-card">
+    <div class="edu-top">
+      <div>
+        <div class="edu-degree">B.Eng. Industrial Engineering</div>
+        <div class="edu-meta">Tsinghua University · Beijing, China · Expected July 2026</div>
+      </div>
+      <div>
+        <div class="edu-gpa-block">
+          <span class="gpa-num">3.9</span>
+          <span class="gpa-denom">/ 4.0</span>
+        </div>
+        <div class="gpa-label">GPA</div>
+      </div>
+    </div>
+    <div class="edu-courses">
+      <strong>Statistics &amp; Probability:</strong> Probability Theory (A) · Linear Regression (A) · Multivariate Analysis (A-) · Nonparametric Statistics (A)
+      <br><strong>Optimization &amp; Computing:</strong> Deterministic Models (A) · Applied Stochastic Models (A) · Convex Optimization (P) · Dynamic Programming &amp; Reinforcement Learning (A+) · Machine Learning (A)
+      <br><strong>Economics &amp; Finance:</strong> Microeconomics (A) · Macroeconomics (B+) · Political Economy (A+) · Engineering Economy (A-) · Corporate Finance (B+)
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label label-large">Honors &amp; Awards</div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div>
+        <div class="exp-header">
+          <span class="exp-title">Scholarship for Scientific and Technological Innovation Excellence</span>
+          <span class="exp-date">Fall 2024–2025</span>
+        </div>
+        <div class="exp-org">Tsinghua University</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div>
+        <div class="exp-header">
+          <span class="exp-title">Scholarship for Comprehensive Excellence</span>
+          <span class="exp-date">Fall 2022–2023</span>
+        </div>
+        <div class="exp-org">Tsinghua University</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div>
+        <div class="exp-header">
+          <span class="exp-title">Outstanding Student Leader</span>
+          <span class="exp-date">Fall 2022</span>
+        </div>
+        <div class="exp-org">Tsinghua University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section>
+    <div class="section-label label-large">Skills &amp; Languages</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-label">Programming</div>
+        <div class="skill-items">Python · MATLAB · C++ · R · SQL</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">English</div>
+        <div class="skill-items">TOEFL 108<br>GRE V158 / Q170 / AW4.0</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Hanyu Cheng · Tsinghua University · Updated April 2026
+</footer>
+
+</body>
+</html>
