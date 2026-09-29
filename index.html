@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hanyu Cheng | 程瀚语</title>
+  <style>
+    :root { --blue: #55749a; --link: #506d91; --line: #aaa; --menu: #f7f7f7; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: #161616; background: #fff; font: 16px/1.30 "Times New Roman", Times, serif; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .layout { display: flex; min-height: 100vh; align-items: stretch; }
+    .sidebar {
+      flex: 0 0 106px; min-height: 100vh; padding: 24px 7px 18px 10px;
+      background: var(--menu); border: 1px solid #dedede;
+    }
+    .sidebar .home-label { display: block; color: #111; font-weight: bold; padding-bottom: 1px; border-bottom: 1px solid #bfbfbf; }
+    .sidebar nav { display: flex; flex-direction: column; gap: 1px; }
+    .sidebar nav a { display: block; padding: 2px 0 1px 8px; white-space: nowrap; }
+    .sidebar nav a.active { color: #2f4d71; text-decoration: underline; }
+    main { flex: 1; min-width: 0; max-width: none; padding: 9px 18px 64px 18px; }
+    .page { display: none; }
+    .page.active { display: block; }
+    h1, h2 { color: var(--blue); font-weight: bold; }
+    h1 { font-size: 27px; line-height: 1.2; margin: 2px 0 22px; padding-bottom: 5px; border-bottom: 3px double var(--line); }
+    h2 { font-size: 20px; line-height: 1.25; margin: 26px 0 7px; padding-bottom: 3px; border-bottom: 1px solid #b9b9b9; }
+    h3 { color: var(--blue); font-size: 17px; margin: 22px 0 5px; }
+    p { margin: 0 0 10px; }
+    ul { margin: 3px 0 15px; padding-left: 40px; list-style-type: square; }
+    li { padding-left: 0; margin-bottom: 2px; }
+    .profile-photo {
+      float: left;
+      width: 170px;
+      height: 210px;
+      object-fit: cover;
+      margin: 0 24px 18px 0;
+    }
+    .papers li { margin-bottom: 13px; }
+    .papers .authors, .papers .venue { display: block; }
+    .papers .venue { font-style: italic; }
+    .papers .venue.plain { font-style: normal; }
+    .note { margin: 3px 0 18px; }
+    .profile-links { margin: 5px 0 26px; line-height: 1.65; }
+    .profile-links a { margin-right: 14px; }
+    .profile-links .email { display: block; }
+    .intro { clear: both; max-width: none; }
+    .experience-list li, .award-list li { margin-bottom: 6px; }
+    @media (max-width: 640px) {
+      .layout { display: block; }
+      .sidebar { min-height: 0; border: 0; border-bottom: 1px solid #dedede; padding: 10px 14px; }
+      .sidebar .home-label { display: inline-block; border: 0; margin-right: 13px; }
+      .sidebar nav { display: inline-flex; flex-direction: row; flex-wrap: wrap; gap: 4px 12px; }
+      .sidebar nav a { display: inline-block; padding: 2px 0; }
+      main { padding: 16px 20px 48px; }
+      h1 { font-size: 25px; }
+      ul { padding-left: 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <span class="home-label">Home</span>
+    <nav aria-label="Main navigation">
+      <a href="#about" data-page="about">About me</a>
+      <a href="#research" data-page="research">Research</a>
+      <a href="#awards" data-page="awards">Awards</a>
+      <a href="#experiences" data-page="experiences">Experiences</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="page" id="about">
+      <h1>Hanyu Cheng 程瀚语</h1>
+      <img class="profile-photo" src="./portrait.png" alt="Hanyu Cheng">
+      <div class="profile-links">
+        <span class="email">Email: <a href="mailto:hanyucheng2026@gmail.com">hanyucheng2026@gmail.com</a></span>
+        <a href="https://scholar.google.com/citations?user=uGolTowAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <br>
+        <a href="https://www.linkedin.com/in/hanyu-cheng-a094b430a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <div class="intro">
+        <h2>About Me</h2>
+        <p>I received my B.E. in Industrial Engineering from Tsinghua University in 2026. <strong>I will join the Department of Industrial Engineering and Operations Research (IEOR) at Columbia University as a Staff Associate in Fall 2026, before beginning my Ph.D. in the H. Milton Stewart School of Industrial and Systems Engineering (ISyE) at Georgia Tech in Spring 2027.</strong></p>
+        <p>My research interests lie in logistics and transportation systems, with two main methodological areas:</p>
+        <ul>
+          <li>Stochastic control;</li>
+          <li>Game theory.</li>
+        </ul>
+        <p>My current research focuses on the stochastic control of non-stationary inventory-queueing systems, in collaboration with Prof. <a href="https://www.columbia.edu/~yao/" target="_blank" rel="noopener noreferrer">David D. Yao</a> at Columbia University.</p>
+      </div>
+    </div>
+
+    <div class="page" id="research">
+      <h1>Research</h1>
+      <p class="note">For the papers listed below, <sup>1</sup> indicates equal contribution.</p>
+
+      <h3>Working Papers</h3>
+      <ul class="papers">
+        <li>
+          <a href="https://arxiv.org/abs/2609.35153" target="_blank" rel="noopener noreferrer">Optimal Control of a Non-Stationary Inventory-Queue, with Applications to EV-Battery Swapping</a>
+          <span class="authors"><u>Hanyu Cheng</u>, David Yao</span>
+          <!-- <span class="venue plain">arXiv:2609.35153, 2026.</span> -->
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2604.21359" target="_blank" rel="noopener noreferrer">A Markovian Traffic Equilibrium Model for Ride-Hailing</a>
+          <span class="authors">Song Gao, <u>Hanyu Cheng</u>, Chiwei Yan, Guocheng Jiang</span>
+          <span class="venue">Major revision at Transportation Science.</span>
+        </li>
+      </ul>
+
+      <h3>Publications</h3>
+      <ul class="papers">
+        <li>
+          <a href="https://www.sciencedirect.com/science/article/abs/pii/S136655452600236X" target="_blank" rel="noopener noreferrer">Optimizing Urban Electric Vehicle Charging and Battery Swapping Infrastructure: A Location-Inventory-Grid Model</a>
+          <span class="authors">Wenqing Ai<sup>1</sup>, <u>Hanyu Cheng</u><sup>1</sup>, Wei Qi</span>
+          <span class="venue">Transportation Research Part E: Logistics and Transportation Review, 2026.</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1016/j.tra.2026.105059" target="_blank" rel="noopener noreferrer">Dynamic Carbon Intensity Indicator (CII) Management in Stochastic Tramp Shipping Market</a>
+          <span class="authors"><u>Hanyu Cheng</u>, Liangqi Cheng, Xiwen Bai</span>
+          <span class="venue">Transportation Research Part A: Policy and Practice, 2026.</span>
+        </li>
+      </ul>
+
+      <h3>Conference Proceedings</h3>
+      <ul class="papers">
+        <li>
+          <a href="https://doi.org/10.1109/ITSC60802.2025.11423421" target="_blank" rel="noopener noreferrer">
+            Adding Runs of Modular Autonomous Vehicles with Skip-Stop Strategy Using Deep Reinforcement Learning
+          </a>
+          <span class="authors"><u>Hanyu Cheng</u>, Qingyun Tian, David Z. W. Wang</span>
+          <span class="venue">2025 IEEE 28th International Conference on Intelligent Transportation Systems (ITSC), 2025.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="page" id="awards">
+      <h1>Awards</h1>
+      <h2>Pre-doctoral Awards</h2>
+      <ul class="award-list">
+        <li>Innovation Excellence Scholarship, Tsinghua University, 2025</li>
+        <li>Innovation Excellence Scholarship, Tsinghua University, 2024</li>
+        <li>Comprehensive Excellence Scholarship, Tsinghua University, 2023</li>
+        <li>Comprehensive Excellence Scholarship, Tsinghua University, 2022</li>
+        <li>Outstanding Student Leader, Tsinghua University, 2022</li>
+      </ul>
+      <!-- <h2>Social Practice</h2>
+      <ul class="award-list">
+        <li>Best Social Practice Award (Top 5%), Tsinghua University, 2023</li>
+        <li>Grade B Practice Team (Top 25%), Tsinghua University, 2023</li>
+      </ul> -->
+    </div>
+
+    <div class="page" id="experiences">
+      <h1>Experiences</h1>
+      <h2>Education</h2>
+      <ul class="experience-list">
+        <li>Ph.D. Student in Industrial Engineering, Georgia Tech, starting Jan. 2027</li>
+        <li>B.Eng. in Industrial Engineering, Tsinghua University, Sep. 2021 - Jul. 2026</li>
+      </ul>
+      <h2>Research Experience</h2>
+      <ul class="experience-list">
+        <li>Staff Associate, Columbia University, Nov. 2026 - Jan. 2027</li>
+        <li>Visiting Student Intern (VSI), Columbia University, Mar. 2026 - May 2026</li>
+        <li>Visiting Student Researcher (VSR), UC Berkeley, Jul. 2025 - Sep. 2025</li>
+      </ul>
+    </div>
+  </main>
+</div>
+<script>
+  const pageIds = ['about', 'research', 'awards', 'experiences'];
+  function showPage() {
+    const selected = location.hash.slice(1);
+    const page = pageIds.includes(selected) ? selected : 'about';
+    document.querySelectorAll('.page').forEach(el => el.classList.toggle('active', el.id === page));
+    document.querySelectorAll('.sidebar nav a').forEach(el => {
+      const active = el.dataset.page === page;
+      el.classList.toggle('active', active);
+      if (active) el.setAttribute('aria-current', 'page');
+      else el.removeAttribute('aria-current');
+    });
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', showPage);
+  showPage();
+</script>
+</body>
+</html>
